@@ -1,10 +1,10 @@
 package com.email.models;
 
 public class Email {
-    private String sender;
-    private String recipient;
-    private String subject;
-    private String message;
+    private final String sender;
+    private final String recipient;
+    private final String subject;
+    private final String message;
     private boolean isRead;
 
     public Email(String sender, String recipient, String subject, String message) {
@@ -41,6 +41,6 @@ public class Email {
 
     @Override
     public String toString() {
-        return "From: " + sender + "\nSubject: " + subject + "\nMessage: " + message + "\n";
+        return "\nFrom: " + sender + "\nTo: " + recipient + "\nSubject: " + subject + "\nMessage:\n" + message + "\n";
     }
 }

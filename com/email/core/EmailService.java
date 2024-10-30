@@ -23,7 +23,7 @@ public class EmailService {
     public static void displayEmails(String username, String folder) throws IOException {
         List<String> emails = FileHandler.readFile(username + "_" + folder + ".txt");
         if (emails.isEmpty()) {
-            System.out.println("No emails found.");
+            System.out.println("\nNo emails found.");
         } else {
             for (String email : emails) {
                 System.out.println(email);

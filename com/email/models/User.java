@@ -1,9 +1,9 @@
 package com.email.models;
 
 public class User {
-    private String username;
-    private String password;
-    private String email;
+    private final String username;
+    private final String password;
+    private final String email;
 
     public User(String username, String password, String email) {
         this.username = username;
@@ -24,10 +24,10 @@ public class User {
     }
 
     public static boolean validateEmail(String email) {
-        return email.matches("^[A-Za-z0-9+_.-]+@(.+)$");
+        return email.matches("^[a-z0-9+_.-]+@[a-z0-9.-]+$");
     }
 
     public static boolean validatePassword(String password) {
-        return password.length() >= 6;
+        return password.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$");
     }
 }

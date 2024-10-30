@@ -10,12 +10,14 @@ public class EmailApp {
     private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
+        System.out.println("Welcome to the Email System!");
         label:
         while (true) {
-            System.out.println("Welcome to the Email System!");
+            System.out.println();
             System.out.println("1. Register");
             System.out.println("2. Login");
             System.out.println("3. Quit");
+            System.out.print("Enter your choice: ");
 
             String choice = sc.nextLine();
 
@@ -35,27 +37,26 @@ public class EmailApp {
     }
 
     private static void handleRegister() throws IOException {
-        System.out.println("Enter username:");
+        System.out.print("\nEnter username: ");
         String username = sc.nextLine();
 
         System.out.println("Enter password:");
+        System.out.println("(Your password must contains at least 6 characters & it should be the combination of upper and lower english alphabets, numbers and special characters.)");
         String password = sc.nextLine();
 
-        System.out.println("Enter email:");
+        System.out.print("Enter email: ");
         String email = sc.nextLine();
 
         if (AuthService.registerUser(username, password, email)) {
             System.out.println("Registration successful!");
-        } else {
-            System.out.println("Registration failed! Invalid email or password, or username already exists.");
         }
     }
 
     private static void handleLogin() throws IOException {
-        System.out.println("Enter username:");
+        System.out.print("\nEnter username: ");
         String username = sc.nextLine();
 
-        System.out.println("Enter password:");
+        System.out.print("Enter password: ");
         String password = sc.nextLine();
 
         if (AuthService.loginUser(username, password)) {
@@ -69,10 +70,12 @@ public class EmailApp {
     private static void showUserMenu(String username) throws IOException {
         label:
         while (true) {
+            System.out.println();
             System.out.println("1. Compose Email");
             System.out.println("2. View Inbox");
             System.out.println("3. View Outbox");
             System.out.println("4. Logout");
+            System.out.print("Enter your choice: ");
 
             String choice = sc.nextLine();
 
@@ -95,10 +98,10 @@ public class EmailApp {
     }
 
     private static void composeEmail(String sender) throws IOException {
-        System.out.println("Enter recipient:");
+        System.out.print("Enter recipient: ");
         String recipient = sc.nextLine();
 
-        System.out.println("Enter subject:");
+        System.out.print("Enter subject: ");
         String subject = sc.nextLine();
 
         System.out.println("Enter message:");

@@ -12,7 +12,12 @@ public class AuthService {
 
     // Register a new user
     public static boolean registerUser(String username, String password, String email) throws IOException {
-        if (!User.validateEmail(email) || !User.validatePassword(password)) {
+        if(!User.validateEmail(email)){
+            System.out.println("Registration failed! Invalid email.");
+            return false;
+        }
+        if(!User.validatePassword(password)){
+            System.out.println("Registration failed! Invalid password.");
             return false;
         }
 
@@ -21,6 +26,7 @@ public class AuthService {
         for (String user : users) {
             String[] userDetails = user.split(",");
             if (userDetails[0].equals(username)) {
+                System.out.println("Registration failed! username already exists.");
                 return false; // User already exists
             }
         }
