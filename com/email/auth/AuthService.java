@@ -46,6 +46,6 @@ public class AuthService {
                 return true; // Login successful
             }
         }
-        return false; // Invalid login
+        return false;
     }
 }
