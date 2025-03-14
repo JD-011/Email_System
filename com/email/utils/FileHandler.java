@@ -123,5 +123,4 @@ public class FileHandler {
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, false));
         writer.close();
     }
-
 }
